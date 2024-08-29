@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
-
+import Chat from "../About/Chat";
 const Contact = () => {
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState("");
@@ -136,6 +136,7 @@ const Contact = () => {
             >
               Post
             </button>
+            <Chat />
           </div>
         </form>
       )}

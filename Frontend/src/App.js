@@ -25,7 +25,7 @@ import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UserProfilePage from "./pages/UserProfile/UserProfilePage";
-
+import Chat from "./pages/About/Chat";
 const Layout = () => {
   return (
     <div>
@@ -71,6 +71,7 @@ const router = createBrowserRouter(
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
       <Route path="/profile" element={<UserProfilePage />}></Route>
+      <Route path="/chat" element={<Chat />}></Route>
     </Route>
   )
 );

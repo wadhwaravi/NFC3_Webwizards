@@ -52,17 +52,14 @@ import {
   espson1,
   espson2,
 } from "../assets/images/index";
-import rice from "../assets/dummyImages/rice.jpg"
-import wheat from "../assets/dummyImages/wheat.jpg"
-import sugar from "../assets/dummyImages/sugar.jpg"
-import pulses from "../assets/dummyImages/pulses.png"
-
+import rice from "../assets/dummyImages/rice.jpg";
+import wheat from "../assets/dummyImages/wheat.jpg";
+import sugar from "../assets/dummyImages/sugar.jpg";
+import pulses from "../assets/dummyImages/pulses.png";
 
 import "./style.css";
 
 // =================== NavBarList Start here ====================
-
-
 
 export const navBarList = [
   {
@@ -299,45 +296,154 @@ export const SplOfferData = [
 
 // =================== PaginationItems Start here ===============
 
+// export const rationItems = [
+//   {
+//     _id : 1,
+//     productName : "Rice",
+//     img : rice,
+//     price : '65Rs',
+//     status : false,
+//     des : "This is rice ",
+//     cat : "rice"
+//   },
+//   {
+//     _id : 2,
+//     productName : "Wheat",
+//     img : wheat,
+//     price : '65Rs',
+//     status : true,
+//     des : "This is Wheat ",
+//     cat : "Wheat"
+//   },
+//   {
+//     _id : 3,
+//     productName : "Sugar",
+//     img : sugar,
+//     price : '65Rs',
+//     status : true,
+//     des : "This is sugar ",
+//     cat : "sugar"
+//   },
+//   {
+//     _id : 4,
+//     productName : "Pulses",
+//     img : pulses,
+//     price : '65Rs',
+//     status : false,
+//     des : "This is pulses ",
+//     cat : "pulses"
+//   }
+// ]
 export const rationItems = [
   {
-    _id : 1,
-    productName : "Rice",
-    img : rice,
-    price : '65Rs',
-    status : false,
-    des : "This is rice ",
-    cat : "rice"
+    _id: 1,
+    name: "Rice", // Changed from productName to name
+    images: rice, // Changed from img to images
+    price: "65Rs",
+    stockStatus: false, // Changed from status to stockStatus
+    description: "This is rice", // Changed from des to description
+    category: "rice", // Changed from cat to category
   },
   {
-    _id : 2,
-    productName : "Wheat",
-    img : wheat,
-    price : '65Rs',
-    status : true,
-    des : "This is Wheat ",
-    cat : "Wheat"
+    _id: 2,
+    name: "Wheat", // Changed from productName to name
+    images: wheat, // Changed from img to images
+    price: "65Rs",
+    stockStatus: true, // Changed from status to stockStatus
+    description: "This is Wheat", // Changed from des to description
+    category: "Wheat", // Changed from cat to category
   },
   {
-    _id : 3,
-    productName : "Sugar",
-    img : sugar,
-    price : '65Rs',
-    status : true,
-    des : "This is sugar ",
-    cat : "sugar"
+    _id: 3,
+    name: "Sugar", // Changed from productName to name
+    images: sugar, // Changed from img to images
+    price: "65Rs",
+    stockStatus: true, // Changed from status to stockStatus
+    description: "This is sugar", // Changed from des to description
+    category: "sugar", // Changed from cat to category
   },
   {
-    _id : 4,
-    productName : "Pulses",
-    img : pulses,
-    price : '65Rs',
-    status : false,
-    des : "This is pulses ",
-    cat : "pulses"
-  }
-]
-
+    _id: 4,
+    name: "Pulses", // Changed from productName to name
+    images: pulses, // Changed from img to images
+    price: "65Rs",
+    stockStatus: false, // Changed from status to stockStatus
+    description: "This is pulses", // Changed from des to description
+    category: "pulses", // Changed from cat to category
+  },
+  {
+    _id: 5,
+    name: "Rice",
+    images: rice,
+    price: "60Rs",
+    stockStatus: true,
+    description: "This is premium quality rice",
+    category: "rice",
+  },
+  {
+    _id: 6,
+    name: "Wheat",
+    images: wheat,
+    price: "55Rs",
+    stockStatus: false,
+    description: "This is organic wheat",
+    category: "wheat",
+  },
+  {
+    _id: 7,
+    name: "Sugar",
+    images: sugar,
+    price: "50Rs",
+    stockStatus: true,
+    description: "This is brown sugar",
+    category: "sugar",
+  },
+  {
+    _id: 8,
+    name: "Pulses",
+    images: pulses,
+    price: "70Rs",
+    stockStatus: true,
+    description: "This is mixed pulses",
+    category: "pulses",
+  },
+  {
+    _id: 9,
+    name: "Rice",
+    images: rice,
+    price: "68Rs",
+    stockStatus: true,
+    description: "This is basmati rice",
+    category: "rice",
+  },
+  {
+    _id: 10,
+    name: "Wheat",
+    images: wheat,
+    price: "62Rs",
+    stockStatus: true,
+    description: "This is whole wheat",
+    category: "wheat",
+  },
+  {
+    _id: 11,
+    name: "Sugar",
+    images: sugar,
+    price: "64Rs",
+    stockStatus: false,
+    description: "This is refined sugar",
+    category: "sugar",
+  },
+  {
+    _id: 12,
+    name: "Pulses",
+    images: pulses,
+    price: "72Rs",
+    stockStatus: true,
+    description: "This is red lentils",
+    category: "pulses",
+  },
+];
 export const paginationItems = [
   {
     _id: "201",

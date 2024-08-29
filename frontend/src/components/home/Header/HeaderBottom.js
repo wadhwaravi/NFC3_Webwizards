@@ -34,8 +34,13 @@ const HeaderBottom = () => {
     const filtered = rationCards.filter((card) =>
       card.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+<<<<<<< Updated upstream
     setFilteredCards(filtered);
   }, [/* searchQuery, rationCards */]);
+=======
+    // setFilteredCards(filtered);
+  }, [searchQuery, rationCards]);
+>>>>>>> Stashed changes
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">

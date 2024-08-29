@@ -66,10 +66,6 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-<<<<<<< Updated upstream
-          
-=======
->>>>>>> Stashed changes
           <div className="my-4">
             {tabs.map((tab) => (
               <div

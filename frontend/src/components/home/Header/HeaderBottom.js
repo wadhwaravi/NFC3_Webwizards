@@ -30,17 +30,17 @@ const HeaderBottom = () => {
     setSearchQuery(e.target.value);
   };
 
-  useEffect(() => {
-    const filtered = rationCards.filter((card) =>
-      card.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-<<<<<<< Updated upstream
-    setFilteredCards(filtered);
-  }, [/* searchQuery, rationCards */]);
-=======
-    // setFilteredCards(filtered);
-  }, [searchQuery, rationCards]);
->>>>>>> Stashed changes
+  useEffect(
+    () => {
+      const filtered = rationCards.filter((card) =>
+        card.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      // setFilteredCards(filtered);
+    },
+    [
+      /* searchQuery, rationCards */
+    ]
+  );
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">

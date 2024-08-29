@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
-
+import { registerUser } from "../../firebase/auth/register";
 const SignUp = () => {
   // ============= Initial State Start here =============
   const [clientName, setClientName] = useState("");
@@ -68,7 +68,7 @@ const SignUp = () => {
   };
   // ================= Email Validation End here ===============
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (checked) {
       if (!clientName) {
@@ -127,6 +127,22 @@ const SignUp = () => {
         setCountry("");
         setZip("");
       }
+      try {
+        await registerUser(
+          clientName,
+          email,
+          phone,
+          password,
+          address,
+          city,
+          country,
+          zip
+        );
+        alert("Registration successful!");
+      } catch (error) {
+        console.error("Registration failed: ", error);
+        alert("Registration failed. Please try again.");
+      }
     }
   };
 
@@ -141,7 +157,10 @@ const SignUp = () => {
             <h1 className="font-titleFont text-xl font-medium">
               Get Started with Raction Ease
             </h1>
-            <p className="text-base">Create your account to access the Digital Ration Card System for Urban Slums.</p>
+            <p className="text-base">
+              Create your account to access the Digital Ration Card System for
+              Urban Slums.
+            </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
@@ -152,7 +171,8 @@ const SignUp = () => {
                 Streamlined Ration Management
               </span>
               <br />
-              Manage ration distribution efficiently and accurately with our digital system.
+              Manage ration distribution efficiently and accurately with our
+              digital system.
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">

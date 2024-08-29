@@ -35,7 +35,7 @@ const HeaderBottom = () => {
       card.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredCards(filtered);
-  }, [searchQuery, rationCards]);
+  }, [/* searchQuery, rationCards */]);
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">

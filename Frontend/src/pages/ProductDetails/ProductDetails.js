@@ -66,21 +66,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-          <div className=" space-x-4  pt-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`${
-                  activeTab === tab.id
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-800"
-                } py-2 px-4  focus:outline-none`}
-                onClick={() => handleTabClick(tab.id)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          
           <div className="my-4">
             {tabs.map((tab) => (
               <div

@@ -4,8 +4,8 @@ import { addToCart } from "../../../redux/orebiSlice";
 
 const ProductInfo = ({ productInfo }) => {
   const highlightStyle = {
-    color: "#d0121a", // Change this to the desired color
-    fontWeight: "bold", // Change this to the desired font weight
+    color: "#d0121a", 
+    fontWeight: "bold",
   };
 
   const renderDescription = () => {
@@ -28,7 +28,7 @@ const ProductInfo = ({ productInfo }) => {
     <div className="flex flex-col gap-5">
       <h2 className="text-4xl font-semibold">{productInfo.productName}</h2>
       <p className="text-2xl font-semibold">
-        {productInfo.price} Dt
+        {productInfo.price}
         <span className="text-xl font-semibold line-through ml-2">540</span>
         <span className="text-xs ml-2 inline-flex items-center px-3 py-1 rounded-full bg-green-600 text-white">
           Save 100
@@ -88,9 +88,6 @@ const ProductInfo = ({ productInfo }) => {
       </div>
 
       <p className="text-base text-green-600 font-medium">En Stock</p>
-      <p className="font-medium text-lg">
-        <span className="font-normal">Colors:</span> {productInfo.color}
-      </p>
       <button
         onClick={() =>
           dispatch(

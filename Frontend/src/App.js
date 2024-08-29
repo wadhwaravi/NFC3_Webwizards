@@ -24,6 +24,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserProfilePage from "./pages/UserProfile/UserProfilePage";
 
 const Layout = () => {
   return (
@@ -57,6 +58,7 @@ const router = createBrowserRouter(
         {/* ==================== Header Navlink Start here =================== */}
         <Route index element={<Home />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/user-profile" element={<UserProfilePage/>}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/journal" element={<Journal />}></Route>
@@ -81,3 +83,4 @@ function App() {
 }
 
 export default App;
+

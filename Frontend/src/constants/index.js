@@ -52,10 +52,18 @@ import {
   espson1,
   espson2,
 } from "../assets/images/index";
+import rice from "../assets/dummyImages/rice.jpg"
+import wheat from "../assets/dummyImages/wheat.jpg"
+import sugar from "../assets/dummyImages/sugar.jpg"
+import pulses from "../assets/dummyImages/pulses.png"
+
 
 import "./style.css";
 
 // =================== NavBarList Start here ====================
+
+
+
 export const navBarList = [
   {
     _id: 1001,
@@ -290,6 +298,45 @@ export const SplOfferData = [
 // =================== Special Offer data End here ==============
 
 // =================== PaginationItems Start here ===============
+
+export const rationItems = [
+  {
+    _id : 1,
+    productName : "Rice",
+    img : rice,
+    price : '65Rs',
+    status : false,
+    des : "This is rice ",
+    cat : "rice"
+  },
+  {
+    _id : 2,
+    productName : "Wheat",
+    img : wheat,
+    price : '65Rs',
+    status : true,
+    des : "This is Wheat ",
+    cat : "Wheat"
+  },
+  {
+    _id : 3,
+    productName : "Sugar",
+    img : sugar,
+    price : '65Rs',
+    status : true,
+    des : "This is sugar ",
+    cat : "sugar"
+  },
+  {
+    _id : 4,
+    productName : "Pulses",
+    img : pulses,
+    price : '65Rs',
+    status : false,
+    des : "This is pulses ",
+    cat : "pulses"
+  }
+]
 
 export const paginationItems = [
   {

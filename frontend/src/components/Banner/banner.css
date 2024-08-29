@@ -1,0 +1,14 @@
+/* Banner.css */
+
+.image-container {
+    flex-shrink: 0; /* Prevents the container from shrinking */
+    max-width: 600px; /* Ensures the container does not exceed the slide width */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto; /* Maintains aspect ratio */
+  }
+  

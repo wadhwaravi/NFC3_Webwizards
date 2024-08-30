@@ -162,5 +162,5 @@ const Cart = () => {
     </div>
   );
 };
-
+//pickup
 export default Cart;

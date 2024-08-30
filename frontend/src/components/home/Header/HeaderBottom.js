@@ -28,6 +28,7 @@ const HeaderBottom = () => {
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
+    localStorage.setItem('ration_number',e.target.value);
   };
 
   useEffect(() => {
@@ -89,7 +90,7 @@ const HeaderBottom = () => {
               value={searchQuery}
               placeholder="Search Ration Cards"
             />
-            <FaSearch className="w-5 h-5" />
+            <FaSearch className="w-5 h-5 cursor-pointer " onClick={()=>navigate('verify-ration-card')} />
             {searchQuery && (
               <div
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}

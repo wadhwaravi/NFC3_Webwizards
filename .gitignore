@@ -103,3 +103,4 @@ database/
 
 # Ignore uploaded files in production
 /uploads/
+venv

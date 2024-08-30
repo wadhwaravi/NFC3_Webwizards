@@ -21,7 +21,7 @@ const Sale = () => {
               Select the ration items as per your limit and add them to your cart.
             </p>
             <div className="mt-4">
-              <a href="/cart" className="inline-block px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600">
+              <a href="/carr" className="inline-block px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600">
                 Shop Now
               </a>
             </div>
@@ -71,7 +71,7 @@ const Sale = () => {
               Visit your nearby store to collect the ration you ordered.
             </p>
             <div className="mt-4">
-              <a href="/schedule" className="inline-block px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-lg hover:bg-yellow-600">
+              <a href="/cart" className="inline-block px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-lg hover:bg-yellow-600">
                 Set Time
               </a>
             </div>

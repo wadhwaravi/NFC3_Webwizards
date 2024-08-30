@@ -26,6 +26,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UserProfilePage from "./pages/UserProfile/UserProfilePage";
 import Chat from "./pages/About/Chat";
+import RationCardVerify from "./pages/RationCardVerify/RationCardVerify"
 const Layout = () => {
   return (
     <div>

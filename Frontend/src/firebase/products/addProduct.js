@@ -1,4 +1,4 @@
-import { firestore } from "./firebaseConfig";
+import { firestore } from "../firebase";
 
 export const addProduct = async (product) => {
   try {

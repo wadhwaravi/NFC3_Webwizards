@@ -1,30 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
+import getUser from "../../firebase/users/getUser";
+
+const auth = getAuth();
 
 const StudentProfile = () => {
-  const user = {
-    name: "John Doe",
-    username: "johndoe123",
-    email: "johndoe@example.com",
-    phone: "78212489897",
-    address:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.",
-    city: "Mumbai",
-    country: "India",
-    postalCode: "400067",
-    profilePicture:
-      "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.",
-    other: {
-      previous_delivery: "25/10/2023",
-      next_delivery: "25/01/2024",
-    },
+  const [user, setUser] = useState(null);
+
+  // Fetch current user's data
+  const fetchUserData = async () => {
+    const currentUser = auth.currentUser;
+
+    if (currentUser) {
+      try {
+        const userData = await getUser(currentUser.uid); // Fetch user data from Firestore
+        setUser(userData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    } else {
+      console.log("No user is signed in.");
+    }
   };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  if (!user) {
+    return <div>Loading...</div>; // Show loading state until user data is fetched
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-white to-gray-200">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-4xl">
         <h2 className="text-center text-2xl font-semibold text-gray-800 mb-4">
-            User Profile
+          User Profile
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left Section */}
@@ -35,9 +46,9 @@ const StudentProfile = () => {
               className="rounded-full w-32 h-32 mb-4"
             />
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              {user.name}
+              {user.fullName}
             </h3>
-            <p className="text-gray-600">Username: {user.username}</p>
+            <p className="text-gray-600">Username: {user.fullName}</p>
             <p className="text-gray-600">Email: {user.email}</p>
             <p className="text-gray-600">Phone: {user.phone}</p>
           </div>
@@ -68,7 +79,7 @@ const StudentProfile = () => {
                   <tr>
                     <td className="p-2 text-gray-600">Postal Code</td>
                     <td className="p-2">:</td>
-                    <td className="p-2 text-gray-800">{user.postalCode}</td>
+                    <td className="p-2 text-gray-800">{user.zip}</td>
                   </tr>
                 </tbody>
               </table>
@@ -87,11 +98,11 @@ const StudentProfile = () => {
                 <div className="flex items-center space-x-4">
                   <div className="bg-purple-500 text-white p-2 rounded-md w-1/2 text-center">
                     <p>Previous Delivery</p>
-                    <p>{user.other.previous_delivery}</p>
+                    <p>{user.previous_delivery}</p>
                   </div>
                   <div className="bg-green-500 text-white p-2 rounded-md w-1/2 text-center">
                     <p>Next Delivery</p>
-                    <p>{user.other.next_delivery}</p>
+                    <p>{user.next_delivery}</p>
                   </div>
                 </div>
               </div>

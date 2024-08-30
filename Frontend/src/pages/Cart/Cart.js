@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import { resetCart } from "../../redux/orebiSlice";
@@ -9,9 +9,18 @@ import ItemCard from "./ItemCard";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Add navigate for redirection
   const products = useSelector((state) => state.orebiReducer.products);
   const [totalAmt, setTotalAmt] = useState("");
   const [shippingCharge, setShippingCharge] = useState("");
+  const [pickupTime, setPickupTime] = useState(""); // State for pickup time
+
+  // Automatically calculate the pickup date (day after tomorrow)
+  const today = new Date();
+  const dayAfterTomorrow = new Date(today);
+  dayAfterTomorrow.setDate(today.getDate() + 2);
+  const formattedDate = dayAfterTomorrow.toISOString().split('T')[0]; // Format YYYY-MM-DD
+
   useEffect(() => {
     let price = 0;
     products.map((item) => {
@@ -20,6 +29,7 @@ const Cart = () => {
     });
     setTotalAmt(price);
   }, [products]);
+
   useEffect(() => {
     if (totalAmt <= 200) {
       setShippingCharge(30);
@@ -29,6 +39,17 @@ const Cart = () => {
       setShippingCharge(20);
     }
   }, [totalAmt]);
+
+  const handlePickupTimeChange = (event) => {
+    setPickupTime(event.target.value);
+  };
+
+  const handlePickupTimeSubmit = (event) => {
+    event.preventDefault();
+    // Handle the redirection after pickup time is selected
+    navigate('/');
+  };
+
   return (
     <div className="max-w-container mx-auto px-4">
       <Breadcrumbs title="Cart" />
@@ -55,19 +76,26 @@ const Cart = () => {
             Reset cart
           </button>
 
-          <div className="flex flex-col mdl:flex-row justify-between border py-4 px-4 items-center gap-2 mdl:gap-0">
-            <div className="flex items-center gap-4">
+          <form onSubmit={handlePickupTimeSubmit} className="flex flex-col gap-4 mt-4">
+            <label className="text-lg font-semibold">
+              Select Pickup Time:
               <input
-                className="w-44 mdl:w-52 h-8 px-4 border text-primeColor text-sm outline-none border-gray-400"
-                type="text"
-                placeholder="Coupon Number"
+                type="time"
+                value={pickupTime}
+                onChange={handlePickupTimeChange}
+                className="mt-2 px-3 py-2 border border-gray-300 rounded-md"
+                required
               />
-              <p className="text-sm mdl:text-base font-semibold">
-                Apply Coupon
-              </p>
-            </div>
-            <p className="text-lg font-semibold">Update Cart</p>
-          </div>
+            </label>
+            <p className="text-sm text-gray-600">Pickup Date: {formattedDate}</p>
+            <button
+              type="submit"
+              className="w-full h-10 bg-primeColor text-white hover:bg-black duration-300"
+            >
+              Confirm Pickup Time
+            </button>
+          </form>
+
           <div className="max-w-7xl gap-4 flex justify-end mt-4">
             <div className="w-96 flex flex-col gap-4">
               <h1 className="text-2xl font-semibold text-right">Cart totals</h1>
@@ -75,19 +103,19 @@ const Cart = () => {
                 <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
                   Subtotal
                   <span className="font-semibold tracking-wide font-titleFont">
-                    ${totalAmt}
+                    ₹{totalAmt}
                   </span>
                 </p>
                 <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
                   Shipping Charge
                   <span className="font-semibold tracking-wide font-titleFont">
-                    ${shippingCharge}
+                    ₹{shippingCharge}
                   </span>
                 </p>
                 <p className="flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-lg px-4 font-medium">
                   Total
                   <span className="font-bold tracking-wide text-lg font-titleFont">
-                    ${totalAmt + shippingCharge}
+                    ₹{totalAmt + shippingCharge}
                   </span>
                 </p>
               </div>
@@ -121,7 +149,7 @@ const Cart = () => {
             </h1>
             <p className="text-sm text-center px-10 -mt-2">
               Your Shopping cart lives to serve. Give it purpose - fill it with
-              books, electronics, videos, etc. and make it happy.
+              pulses, sugar, and make it happy.
             </p>
             <Link to="/shop">
               <button className="bg-primeColor rounded-md cursor-pointer hover:bg-black active:bg-gray-900 px-8 py-2 font-titleFont font-semibold text-lg text-gray-200 hover:text-white duration-300">
@@ -134,5 +162,5 @@ const Cart = () => {
     </div>
   );
 };
-
+//pickup
 export default Cart;

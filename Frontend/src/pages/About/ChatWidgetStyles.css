@@ -1,0 +1,71 @@
+/* Override default widget styles */
+.rcw-widget-container {
+  background-color: #ffffff; /* White background for the widget */
+  border-color: #000000; /* Black border */
+}
+
+.rcw-conversation-container {
+  background-color: #ffffff; /* White background for conversation area */
+  color: #000000; /* Black text color */
+}
+
+.rcw-header {
+  background-color: #000000; /* Black header background */
+  color: #ffffff; /* White text color in header */
+}
+
+.rcw-message-list {
+  background-color: #ffffff; /* White background for message list */
+  color: #000000; /* Black text color in messages */
+}
+
+.rcw-send {
+  background-color: #000000; /* Black send button background */
+  color: #ffffff; /* White text color on send button */
+}
+
+.rcw-send:hover {
+  background-color: #333333; /* Darker background on hover */
+}
+
+/* Optional: Override other styles as needed */
+/* Override default widget styles */
+.rcw-widget-container {
+  background-color: #ffffff !important; /* White background for the widget */
+  border-color: #000000 !important; /* Black border */
+}
+
+.rcw-conversation-container {
+  background-color: #ffffff !important; /* White background for conversation area */
+  color: #000000 !important; /* Black text color */
+}
+
+.rcw-header {
+  background-color: #000000 !important; /* Black header background */
+  color: #ffffff !important; /* White text color in header */
+}
+
+.rcw-message-list {
+  background-color: #ffffff !important; /* White background for message list */
+  color: #000000 !important; /* Black text color in messages */
+}
+
+.rcw-send {
+  background-color: #000000 !important; /* Black send button background */
+  color: #ffffff !important; /* White text color on send button */
+}
+
+.rcw-send:hover {
+  background-color: #333333 !important; /* Darker background on hover */
+}
+
+/* Optional: Additional styles to ensure no blue color remains */
+.rcw-header,
+.rcw-send,
+.rcw-message-list,
+.rcw-conversation-container {
+  border: none !important;
+}
+.rcw-launcher {
+  background-color: #000000;
+}

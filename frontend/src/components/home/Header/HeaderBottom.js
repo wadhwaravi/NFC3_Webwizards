@@ -31,12 +31,17 @@ const HeaderBottom = () => {
     localStorage.setItem('ration_number',e.target.value);
   };
 
-  useEffect(() => {
-    const filtered = rationCards.filter((card) =>
-      card.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredCards(filtered);
-  }, [/* searchQuery, rationCards */]);
+  useEffect(
+    () => {
+      const filtered = rationCards.filter((card) =>
+        card.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      // setFilteredCards(filtered);
+    },
+    [
+      /* searchQuery, rationCards */
+    ]
+  );
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">

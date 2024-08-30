@@ -44,7 +44,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setProductInfo(location.state.item);
-    setPrevLocation(location.pathname);
+    // setPrevLocation(location.pathname);
   }, [location, productInfo.ficheTech]);
 
   return (
@@ -66,7 +66,6 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-          
           <div className="my-4">
             {tabs.map((tab) => (
               <div

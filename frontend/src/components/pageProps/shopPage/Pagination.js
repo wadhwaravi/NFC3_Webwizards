@@ -1,10 +1,24 @@
 import React, { useState } from "react";
 import Product from "../../home/Products/Product";
 import { useSelector } from "react-redux";
-import { paginationItems,rationItems } from "../../../constants";
+import { paginationItems, rationItems } from "../../../constants";
+import { getProducts } from "../../../firebase/products/getProducts";
 
 const items = paginationItems;
 
+const fetchProducts = async () => {
+  try {
+    rationItems = await getProducts();
+    console.log("Products fetched:", rationItems);
+    // Process the products as needed, e.g., set them to state or use them in your application
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+  }
+};
+
+fetchProducts();
+// Call the function
+// rationItems = fetchProducts();
 function Items({ currentItems, selectedBrands, selectedCategories }) {
   const filteredItems = currentItems.filter((item) => {
     const isBrandSelected =
@@ -24,13 +38,12 @@ function Items({ currentItems, selectedBrands, selectedCategories }) {
         <div key={item._id} className="w-full">
           <Product
             _id={item._id}
-            img={item.img}
-            productName={item.productName}
+            img={item.images} // Changed from item.img to item.images based on schema
+            productName={item.name} // Changed from item.productName to item.name
             price={item.price}
-            color={item.color}
-            badge={true}
-            status = {item.status}
-            des={item.des}
+            description={item.description} // Changed from item.des to item.description
+            badge={true} // Assuming you want to always show badge
+            status={item.stockStatus} // Changed from item.status to item.stockStatus
           />
         </div>
       ))}

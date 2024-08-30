@@ -1,8 +1,10 @@
-import { firestore } from "./firebaseConfig";
+import { db } from "../firebase"; // Adjust the path as needed
+import { collection, getDocs } from "firebase/firestore";
 
 export const getProducts = async () => {
   try {
-    const snapshot = await firestore.collection("products").get();
+    const productsCollection = collection(db, "products"); // Use collection method
+    const snapshot = await getDocs(productsCollection); // Use getDocs to fetch data
     if (snapshot.empty) {
       console.log("No products found.");
       return [];

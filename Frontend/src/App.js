@@ -25,8 +25,7 @@ import Shop from "./pages/Shop/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UserProfilePage from "./pages/UserProfile/UserProfilePage";
-import RationCardVerify from "./pages/RationCardVerify/RationCardVerify";
-
+import Chat from "./pages/About/Chat";
 const Layout = () => {
   return (
     <div>
@@ -59,7 +58,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />}></Route>
         <Route path="verify-ration-card" element={<RationCardVerify />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
-        <Route path="/user-profile" element={<UserProfilePage/>}></Route>
+        <Route path="/user-profile" element={<UserProfilePage />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/journal" element={<Journal />}></Route>
@@ -70,6 +69,8 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/profile" element={<UserProfilePage />}></Route>
+      <Route path="/chat" element={<Chat />}></Route>
     </Route>
   )
 );
@@ -83,4 +84,3 @@ function App() {
 }
 
 export default App;
-

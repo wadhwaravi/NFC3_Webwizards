@@ -10,7 +10,11 @@ import { toast } from "react-toastify";
 const Product = (props) => {
   const dispatch = useDispatch();
   const _id = props.productName;
-  const idString = (_id) => String(_id).toLowerCase().split(" ").join("");
+  const idString = (_id) =>
+    String(_id)
+      .toLowerCase()
+      .split(" ")
+      .join("");
   const rootId = idString(_id);
   const navigate = useNavigate();
   const productItem = props;
@@ -41,9 +45,15 @@ const Product = (props) => {
   return (
     <div className="w-64 h-96 relative group bg-white shadow-lg">
       <div className="relative w-full h-2/3 overflow-hidden">
-        <div onClick={handleProductDetails} className="cursor-pointe bg-red-300r">
-          
-          <img src={props.img} alt={props.productName} className="w-full h-full object-cover" />
+        <div
+          onClick={handleProductDetails}
+          className="cursor-pointe bg-red-300r"
+        >
+          <img
+            src={props.img}
+            alt={props.productName}
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="absolute top-6 left-8">
           {/* {props.badge && <Badge text="New" />} */}
@@ -79,8 +89,12 @@ const Product = (props) => {
           <p className="text-[#767676] text-[14px]">{props.price}</p>
         </div>
         <div>
-          <p className={`text-[18px] font-bold ${props.status ? 'text-green-300' : 'text-red-400'}`}>
-            {props.status ? 'In Stock' : 'Out of Stock'}
+          <p
+            className={`text-[18px] font-bold ${
+              props.status ? "text-green-300" : "text-red-400"
+            }`}
+          >
+            {props.status ? "In Stock" : "Out of Stock"}
           </p>
         </div>
       </div>

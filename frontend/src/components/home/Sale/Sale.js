@@ -2,7 +2,6 @@ import React from "react";
 import { ShoppingCartIcon, CheckCircleIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { saleImgTwo, saleImgThree } from "../../../assets/images/index";
 import Image from "../../designLayouts/Image";
-import ShopNow from "../../designLayouts/buttons/ShopNow";
 
 const Sale = () => {
   return (
